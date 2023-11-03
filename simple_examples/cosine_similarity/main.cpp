@@ -91,6 +91,8 @@ int main(){
     std::cout << "Similarity:" <<"\n";
     print_hv<float>((float*) &result, ROW);
 
+    int arg_max = __hetero_hdc_arg_max<ROW, float>(*&result); 
+    std::cout << "Arg Max: "<< arg_max << "\n";
 
     __hpvm__cleanup();
     return 0;
