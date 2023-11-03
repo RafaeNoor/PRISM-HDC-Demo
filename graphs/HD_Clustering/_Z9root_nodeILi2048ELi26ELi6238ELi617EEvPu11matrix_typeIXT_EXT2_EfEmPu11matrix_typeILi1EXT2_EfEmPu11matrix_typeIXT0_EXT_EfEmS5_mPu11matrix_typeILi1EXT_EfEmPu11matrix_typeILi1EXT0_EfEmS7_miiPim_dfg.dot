@@ -1,0 +1,228 @@
+digraph "HPVM DAG" {
+label=root_node
+compound=true;
+style="rounded"subgraph "cluster root_node"{
+label = root_node
+root_nodeENTRY[label = "ENTRY"]
+root_nodeEXIT[label = "EXIT"]
+subgraph "cluster inference_task"{
+label = inference_task
+inference_taskENTRY[label = "ENTRY"]
+inference_taskEXIT[label = "EXIT"]
+subgraph "cluster root_node_extracted_reorder"{
+label = root_node_extracted_reorder
+root_node_extracted_reorderENTRY[label = "ENTRY"]
+root_node_extracted_reorderEXIT[label = "EXIT"]
+subgraph "cluster encoding_and_inference_node"{
+label = encoding_and_inference_node
+encoding_and_inference_nodeENTRY[label = "ENTRY"]
+encoding_and_inference_nodeEXIT[label = "EXIT"]
+subgraph "cluster encoding_task"{
+label = encoding_task
+encoding_taskENTRY[label = "ENTRY"]
+encoding_taskEXIT[label = "EXIT"]
+subgraph "cluster inner_rp_encoding_task"{
+label = inner_rp_encoding_task
+inner_rp_encoding_taskENTRY[label = "ENTRY"]
+inner_rp_encoding_taskEXIT[label = "EXIT"]
+encoding_and_inference_node_loop_header2_reorder
+encoding_and_inference_node_loop_header_reorder
+inner_rp_encoding_taskENTRY->encoding_and_inference_node_loop_header_reorder
+inner_rp_encoding_taskENTRY->encoding_and_inference_node_loop_header_reorder
+inner_rp_encoding_taskENTRY->encoding_and_inference_node_loop_header2_reorder
+inner_rp_encoding_taskENTRY->encoding_and_inference_node_loop_header2_reorder
+inner_rp_encoding_taskENTRY->encoding_and_inference_node_loop_header2_reorder
+inner_rp_encoding_taskENTRY->encoding_and_inference_node_loop_header2_reorder
+encoding_and_inference_node_loop_header2_reorder->inner_rp_encoding_taskEXIT
+
+encoding_and_inference_node_loop_header2_reorder->inner_rp_encoding_taskEXIT
+
+encoding_and_inference_node_loop_header_reorder->encoding_and_inference_node_loop_header2_reorder
+
+encoding_and_inference_node_loop_header_reorder->encoding_and_inference_node_loop_header2_reorder
+
+} 
+encoding_taskENTRY->inner_rp_encoding_taskENTRY
+encoding_taskENTRY->inner_rp_encoding_taskENTRY
+encoding_taskENTRY->inner_rp_encoding_taskENTRY
+encoding_taskENTRY->inner_rp_encoding_taskENTRY
+encoding_taskENTRY->inner_rp_encoding_taskENTRY
+encoding_taskENTRY->inner_rp_encoding_taskENTRY
+inner_rp_encoding_taskEXIT->encoding_taskEXIT
+
+inner_rp_encoding_taskEXIT->encoding_taskEXIT
+
+} 
+subgraph "cluster clustering_task"{
+label = clustering_task
+clustering_taskENTRY[label = "ENTRY"]
+clustering_taskEXIT[label = "EXIT"]
+subgraph "cluster clustering_node"{
+label = clustering_node
+clustering_nodeENTRY[label = "ENTRY"]
+clustering_nodeEXIT[label = "EXIT"]
+clustering_scoring_task
+find_score_and_label_task
+clustering_nodeENTRY->clustering_scoring_task
+clustering_nodeENTRY->clustering_scoring_task
+clustering_nodeENTRY->clustering_scoring_task
+clustering_nodeENTRY->clustering_scoring_task
+clustering_nodeENTRY->clustering_scoring_task
+clustering_nodeENTRY->clustering_scoring_task
+clustering_nodeENTRY->find_score_and_label_task
+clustering_nodeENTRY->find_score_and_label_task
+clustering_nodeENTRY->find_score_and_label_task
+clustering_nodeENTRY->find_score_and_label_task
+clustering_nodeENTRY->find_score_and_label_task
+find_score_and_label_task->clustering_nodeEXIT
+
+find_score_and_label_task->clustering_nodeEXIT
+
+find_score_and_label_task->clustering_nodeEXIT
+
+find_score_and_label_task->clustering_nodeEXIT
+
+clustering_scoring_task->find_score_and_label_task
+
+clustering_scoring_task->find_score_and_label_task
+
+} 
+clustering_taskENTRY->clustering_nodeENTRY
+clustering_taskENTRY->clustering_nodeENTRY
+clustering_taskENTRY->clustering_nodeENTRY
+clustering_taskENTRY->clustering_nodeENTRY
+clustering_taskENTRY->clustering_nodeENTRY
+clustering_taskENTRY->clustering_nodeENTRY
+clustering_taskENTRY->clustering_nodeENTRY
+clustering_taskENTRY->clustering_nodeENTRY
+clustering_taskENTRY->clustering_nodeENTRY
+clustering_taskENTRY->clustering_nodeENTRY
+clustering_taskENTRY->clustering_nodeENTRY
+clustering_taskENTRY->clustering_nodeENTRY
+clustering_taskENTRY->clustering_nodeENTRY
+clustering_nodeEXIT->clustering_taskEXIT
+
+clustering_nodeEXIT->clustering_taskEXIT
+
+clustering_nodeEXIT->clustering_taskEXIT
+
+clustering_nodeEXIT->clustering_taskEXIT
+
+} 
+encoding_and_inference_nodeENTRY->encoding_taskENTRY
+encoding_and_inference_nodeENTRY->encoding_taskENTRY
+encoding_and_inference_nodeENTRY->encoding_taskENTRY
+encoding_and_inference_nodeENTRY->encoding_taskENTRY
+encoding_and_inference_nodeENTRY->encoding_taskENTRY
+encoding_and_inference_nodeENTRY->encoding_taskENTRY
+encoding_and_inference_nodeENTRY->clustering_taskENTRY
+encoding_and_inference_nodeENTRY->clustering_taskENTRY
+encoding_and_inference_nodeENTRY->clustering_taskENTRY
+encoding_and_inference_nodeENTRY->clustering_taskENTRY
+encoding_and_inference_nodeENTRY->clustering_taskENTRY
+encoding_and_inference_nodeENTRY->clustering_taskENTRY
+encoding_and_inference_nodeENTRY->clustering_taskENTRY
+encoding_and_inference_nodeENTRY->clustering_taskENTRY
+encoding_and_inference_nodeENTRY->clustering_taskENTRY
+encoding_and_inference_nodeENTRY->clustering_taskENTRY
+encoding_and_inference_nodeENTRY->clustering_taskENTRY
+clustering_taskEXIT->encoding_and_inference_nodeEXIT
+
+clustering_taskEXIT->encoding_and_inference_nodeEXIT
+
+clustering_taskEXIT->encoding_and_inference_nodeEXIT
+
+clustering_taskEXIT->encoding_and_inference_nodeEXIT
+
+encoding_taskEXIT->clustering_taskENTRY
+
+encoding_taskEXIT->clustering_taskENTRY
+
+} 
+root_node_extracted_reorderENTRY->encoding_and_inference_nodeENTRY
+root_node_extracted_reorderENTRY->encoding_and_inference_nodeENTRY
+root_node_extracted_reorderENTRY->encoding_and_inference_nodeENTRY
+root_node_extracted_reorderENTRY->encoding_and_inference_nodeENTRY
+root_node_extracted_reorderENTRY->encoding_and_inference_nodeENTRY
+root_node_extracted_reorderENTRY->encoding_and_inference_nodeENTRY
+root_node_extracted_reorderENTRY->encoding_and_inference_nodeENTRY
+root_node_extracted_reorderENTRY->encoding_and_inference_nodeENTRY
+root_node_extracted_reorderENTRY->encoding_and_inference_nodeENTRY
+root_node_extracted_reorderENTRY->encoding_and_inference_nodeENTRY
+root_node_extracted_reorderENTRY->encoding_and_inference_nodeENTRY
+root_node_extracted_reorderENTRY->encoding_and_inference_nodeENTRY
+root_node_extracted_reorderENTRY->encoding_and_inference_nodeENTRY
+root_node_extracted_reorderENTRY->encoding_and_inference_nodeENTRY
+root_node_extracted_reorderENTRY->encoding_and_inference_nodeENTRY
+root_node_extracted_reorderENTRY->encoding_and_inference_nodeENTRY
+root_node_extracted_reorderENTRY->encoding_and_inference_nodeENTRY
+root_node_extracted_reorderENTRY->encoding_and_inference_nodeENTRY
+encoding_and_inference_nodeEXIT->root_node_extracted_reorderEXIT
+
+encoding_and_inference_nodeEXIT->root_node_extracted_reorderEXIT
+
+encoding_and_inference_nodeEXIT->root_node_extracted_reorderEXIT
+
+encoding_and_inference_nodeEXIT->root_node_extracted_reorderEXIT
+
+} 
+inference_taskENTRY->root_node_extracted_reorderENTRY
+inference_taskENTRY->root_node_extracted_reorderENTRY
+inference_taskENTRY->root_node_extracted_reorderENTRY
+inference_taskENTRY->root_node_extracted_reorderENTRY
+inference_taskENTRY->root_node_extracted_reorderENTRY
+inference_taskENTRY->root_node_extracted_reorderENTRY
+inference_taskENTRY->root_node_extracted_reorderENTRY
+inference_taskENTRY->root_node_extracted_reorderENTRY
+inference_taskENTRY->root_node_extracted_reorderENTRY
+inference_taskENTRY->root_node_extracted_reorderENTRY
+inference_taskENTRY->root_node_extracted_reorderENTRY
+inference_taskENTRY->root_node_extracted_reorderENTRY
+inference_taskENTRY->root_node_extracted_reorderENTRY
+inference_taskENTRY->root_node_extracted_reorderENTRY
+inference_taskENTRY->root_node_extracted_reorderENTRY
+inference_taskENTRY->root_node_extracted_reorderENTRY
+inference_taskENTRY->root_node_extracted_reorderENTRY
+inference_taskENTRY->root_node_extracted_reorderENTRY
+root_node_extracted_reorderEXIT->inference_taskEXIT
+
+root_node_extracted_reorderEXIT->inference_taskEXIT
+
+root_node_extracted_reorderEXIT->inference_taskEXIT
+
+root_node_extracted_reorderEXIT->inference_taskEXIT
+
+} 
+update_task
+root_nodeENTRY->inference_taskENTRY
+root_nodeENTRY->inference_taskENTRY
+root_nodeENTRY->inference_taskENTRY
+root_nodeENTRY->inference_taskENTRY
+root_nodeENTRY->inference_taskENTRY
+root_nodeENTRY->inference_taskENTRY
+root_nodeENTRY->inference_taskENTRY
+root_nodeENTRY->inference_taskENTRY
+root_nodeENTRY->inference_taskENTRY
+root_nodeENTRY->inference_taskENTRY
+root_nodeENTRY->inference_taskENTRY
+root_nodeENTRY->inference_taskENTRY
+root_nodeENTRY->inference_taskENTRY
+root_nodeENTRY->inference_taskENTRY
+root_nodeENTRY->inference_taskENTRY
+root_nodeENTRY->inference_taskENTRY
+root_nodeENTRY->inference_taskENTRY
+root_nodeENTRY->inference_taskENTRY
+root_nodeENTRY->update_task
+root_nodeENTRY->update_task
+root_nodeENTRY->update_task
+root_nodeENTRY->update_task
+inference_taskEXIT->update_task
+
+inference_taskEXIT->update_task
+
+inference_taskEXIT->update_task
+
+inference_taskEXIT->update_task
+
+} 
+}
