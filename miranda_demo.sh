@@ -1,4 +1,6 @@
-HD_CLUSTERING_DIR := ~/HD-Clustering/Hetero-C++
+#!/usr/bin/env bash
+set -e
+HD_CLUSTERING_DIR=~/HD-Clustering/Hetero-C++
 
 cd $HD_CLUSTERING_DIR
 make clean
