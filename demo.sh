@@ -4,12 +4,22 @@ echo "Starting with simple examples."
 cd simple_examples
 read -p "Compile binary encoding (press enter to continue)."
 cd binary_encoding
-echo "Compiling for CPU:"
-make main-cpu
-echo "Compiling for GPU:"
-make main-gpu
-echo "Compiling for FPGA (emulation):"
-make main-fpga
+make clean
+echo ""
+echo ""
+echo ""
+read -p "Compile for CPU:"
+make -W main.cpp main-cpu
+echo ""
+echo ""
+echo ""
+read -p "Compile for GPU:"
+make -W main.cpp main-gpu
+echo ""
+echo ""
+echo ""
+read -p "Compile for FPGA (emulation):"
+make -W main.cpp main-fpga
 read -p "Run binary encoding on CPU, GPU, and FPGA emulation (press enter to continue)."
 echo "Running on CPU:"
 ./main-cpu
@@ -17,7 +27,6 @@ echo "Running on GPU:"
 ./main-gpu
 echo "Running on FPGA (emulation):"
 ./main-fpga
-make clean
 cd ..
 read -p "Compile cosine similarity (press enter to continue)."
 cd cosine_similarity
