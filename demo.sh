@@ -58,3 +58,10 @@ echo "Running on GPU:"
 ./host-gpu 1
 make clean
 cd ../..
+read -p "Run HD clustering on FPGA, precompiled (press enter to continue)."
+cd HD-Clustering/Hetero-C++
+cp /shared/rarbore2/host-fpga .
+cp /shared/rarbore2/hpvm.kernels.fpga.aocx build/
+./host-fpga 1
+make clean
+cd ../..
