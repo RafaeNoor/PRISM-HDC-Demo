@@ -86,7 +86,7 @@ build/hpvm.gpu.ll: build/hpvmc.gpu.ll
 
 build/hpvmcompiled.gpu.ll: build/hpvm.gpu.ll
 	$(HPVM_BIN)/opt -enable-new-pm=0 -load $(HPVM_LIB)/HPVMBuildDFG.so -load $(HPVM_LIB)/HPVMLocalMem.so -load $(HPVM_LIB)/HPVMDFG2LLVM_GPU_OCL.so -load $(HPVM_LIB)/HPVMDFG2LLVM_CPU.so -load $(HPVM_LIB)/HPVMClearDFG.so -load $(HPVM_LIB)/HPVMDFGTransformPasses.so -localmem -dfg2llvm-gpu-ocl -dfg2llvm-cpu -clearDFG -hpvm-timers-cpu -hpvm-timers-ptx $< -S -o $@
-	$(HPVM_BIN)/llvm-ocl build/hpvm.gpu.kernels.ll
+	#$(HPVM_BIN)/llvm-ocl build/hpvm.gpu.kernels.ll
 
 HPVM_RT := $(HPVM_BUILD_DIR)/tools/hpvm/projects/hpvm-rt/hpvm-rt.bc
 
@@ -134,4 +134,4 @@ build/output.fpga.ll: build/hpvm.main.fpga.ll
 .PHONY: clean
 
 clean:
-	rm -rf *.dot build/*.ll build/* main-gpu main-cpu
+	rm -rf *.dot build/*.ll main-gpu main-cpu
