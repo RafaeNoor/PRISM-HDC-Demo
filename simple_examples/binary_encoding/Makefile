@@ -134,4 +134,4 @@ build/output.fpga.ll: build/hpvm.main.fpga.ll
 .PHONY: clean
 
 clean:
-	rm -rf *.dot build/*.ll main-gpu main-cpu
+	rm -rf *.dot build/*.ll main-gpu main-cpu main-fpga *.aoco
