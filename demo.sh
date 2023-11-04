@@ -38,7 +38,20 @@ echo "Compiling for CPU:"
 make host-cpu
 echo "Compiling for GPU:"
 make host-gpu
-read -p "Run binary encoding on CPU and GPU (press enter to continue)."
+read -p "Run HD clustering on CPU and GPU (press enter to continue)."
+echo "Running on CPU:"
+./host-cpu 1
+echo "Running on GPU:"
+./host-gpu 1
+make clean
+cd ../..
+read -p "Compile HD classification (press enter to continue)."
+cd HD-Classification/Hetero-C++
+echo "Compiling for CPU:"
+make host-cpu
+echo "Compiling for GPU:"
+make host-gpu
+read -p "Run HD classification on CPU and GPU (press enter to continue)."
 echo "Running on CPU:"
 ./host-cpu 1
 echo "Running on GPU:"
