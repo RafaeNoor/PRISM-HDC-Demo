@@ -95,16 +95,16 @@ echo "==========================================================================
 read -p "Run HD clustering on CPU, GPU and FPGA (press Enter to continue)."
 echo "Running on CPU:"
 echo ""
-./host-cpu 1 | grep -v "Cluter"
+./host-cpu 1
 sleep 1
 echo ""
 echo "Running on GPU:"
 echo ""
-./host-gpu 1 | grep -v "Cluter"
+./host-gpu 1
 sleep 1
 echo "Running on FPGA:"
 echo ""
-./host-fpga 1 | grep -v "Cluter"
+./host-fpga 1
 sleep 1
 make clean
 cd ../../
