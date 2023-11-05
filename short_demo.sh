@@ -42,6 +42,7 @@ echo ""
 ./host-gpu 1
 sleep 1
 make clean
+rm out.txt
 cd ../..
 read -p  " *** Please refer to HD Classification Dataflow graphs (press Enter to continue)"
 clear
@@ -95,16 +96,16 @@ echo "==========================================================================
 read -p "Run HD clustering on CPU, GPU and FPGA (press Enter to continue)."
 echo "Running on CPU:"
 echo ""
-./host-cpu 1
+./host-cpu 1 | grep -v "Cluter"
 sleep 1
 echo ""
 echo "Running on GPU:"
 echo ""
-./host-gpu 1
+./host-gpu 1 | grep -v "Cluter"
 sleep 1
 echo "Running on FPGA:"
 echo ""
-./host-fpga 1
+./host-fpga 1 | grep -v "Cluter"
 sleep 1
 make clean
 cd ../../
